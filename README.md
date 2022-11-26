@@ -1,0 +1,7 @@
+To reproduce the result:
+1. Create a Google Cloud VM instance (under compute engine) with the following specification: 4 vCPUs, 15GB memory, zone = us-west1-b, Linux 16.04 LTS, allow HTTP/HTTPS traffic.
+2. Clone our code on Github: git clone https://github.com/g60726/CS244Lab3
+3. cd into CS244Lab3, then run "chmod +x *.sh" to make shell scripts executable.
+4. Run "sudo ./install.sh" to install Mininet, Python 2.7, numpy, matplotlib, argparse.
+5. Run "sudo ./run.sh" to run the simulation. It should take about 15 - 20 minutes. Once done, the two figures for RTT and BW will be in the figures folder.
+6. Optional: run.sh only reproduce our main results for paper’s Figure 5, but doesn’t reproduce the additional result we’ve included which test for different response sizes. If you want to see the improvement under different response sizes,  you can change the response size in webserver.py (change "a * 9000" to  "a * x" where x is whatever response size you want), and you can see different results by looking at the new figures. If you want to reproduce the extra graphs, you will have to rename the "results" folder generated for each response sizes to "results_[size]".  At the end, you should have "results_2000", "results_9000", "results_20000", and "results_40000" folders. Once you have these folders, you can run "sudo python plot_extra_figures" to reproduce the two extra graphs. Doing this is optional since it will take a lot more time to run all the different response sizes (about 1 hour) and it's not the main results we are trying to reproduce.
